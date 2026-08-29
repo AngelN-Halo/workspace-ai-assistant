@@ -69,7 +69,7 @@ Start it with:
 docker compose up --build
 ```
 
-The database password defaults to `change-me-locally` for development only. Set `POSTGRES_PASSWORD` in an untracked `.env` file before using this beyond local development. The FastAPI backend is not included yet; it will be added when OAuth and live Google API access are implemented.
+The database password is required from an untracked `.env` file; there is no insecure default. Copy `.env.example` to `.env`, set `POSTGRES_PASSWORD`, and use a strong local value before starting Compose. The FastAPI backend is not included yet; it will be added when OAuth and live Google API access are implemented.
 
 ## Planned architecture
 
