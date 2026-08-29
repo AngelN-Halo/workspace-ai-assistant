@@ -30,6 +30,12 @@ OAuth, FastAPI services, PostgreSQL persistence, Redis jobs, encryption, and liv
 - Lucide React
 - Node.js 20+
 
+## Configuration and secrets
+
+Never commit `.env`, OAuth client secrets, API keys, refresh tokens, access tokens, private keys, or production database credentials. Local secrets belong in an untracked `.env` file or in your deployment secret manager. Copy `.env.example` to `.env` and fill in values locally when the backend is added.
+
+The repository ignores `.env` and common build/dependency directories. The committed `.env.example` contains placeholders only.
+
 ## Run locally
 
 ```bash
