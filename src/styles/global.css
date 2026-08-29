@@ -99,7 +99,8 @@ h1 { font-family:'Space Grotesk'; letter-spacing:-.045em; font-size:38px; margin
 .chip:hover { color:var(--blue); border-color:var(--blue); }
 .right-col { display:flex; flex-direction:column; gap:20px; }
 .integration-card { padding-bottom:13px; }
-.integration { display:flex; align-items:center; gap:12px; padding:10px 22px; }
+.integration { display:flex; align-items:center; gap:12px; padding:10px 22px; cursor:pointer; }
+.integration:hover { background:var(--surface-2); }
 .integration + .integration { border-top:1px solid var(--line); }
 .integration-icon { width:29px; height:29px; border-radius:7px; display:grid; place-items:center; font-size:14px; font-weight:700; }
 .integration-icon.gmail { background:#fff0ee; } .integration-icon.drive { background:#eaf8f0; } .integration-icon.docs { background:#edf1ff; } .integration-icon.sheets { background:#f0f8e9; }
