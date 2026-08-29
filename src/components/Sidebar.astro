@@ -1,0 +1,94 @@
+---
+const navItems = [
+  { id: 'hyperv-vm', label: '1. Hyper-V VM Creation' },
+  { id: 'ubuntu-install', label: '2. Ubuntu 24.04 Installation' },
+  { id: 'disk-space', label: '3. Full Disk Space' },
+  { id: 'network', label: '4. Network Configuration' },
+  { id: 'ssh', label: '5. SSH Setup & Usage' },
+  { id: 'sudo-users', label: '6. sudo & User Management' },
+  { id: 'dns', label: '7. DNS Configuration' },
+  { id: 'ntp', label: '8. Date & Time (NTP)' },
+  { id: 'updates', label: '9. System Updates' },
+  { id: 'docker', label: '10. Docker Installation' },
+  { id: 'nginx-simple', label: '11. Simple Nginx (Docker)' },
+  { id: 'npm', label: '12. Nginx Proxy Manager' },
+  { id: 'virtual-hosting', label: '13. Name-Based Virtual Hosting' },
+  { id: 'quick-ref', label: 'Quick Reference' },
+  { id: 'troubleshooting', label: 'Troubleshooting' },
+];
+---
+
+<aside id="sidebar" class="w-72 bg-[var(--ubuntu-light)] border-r border-gray-200 sticky top-0 h-screen overflow-y-auto p-6 flex-shrink-0 hidden lg:block">
+  <h3 class="text-xs uppercase tracking-wider text-gray-500 mb-4 pb-2 border-b-2 border-[var(--ubuntu-orange)]">Table of Contents</h3>
+  <nav class="space-y-1">
+    {navItems.map((item) => (
+      <a href={`#${item.id}`} class="nav-link" data-section={item.id}>
+        {item.label}
+      </a>
+    ))}
+  </nav>
+
+  <div class="mt-8 p-4 bg-white rounded-lg border border-gray-200">
+    <h4 class="text-sm font-semibold text-[var(--ubuntu-dark)] mb-2">Quick Network Info</h4>
+    <code class="block text-xs bg-[var(--code-bg)] text-[var(--code-text)] px-2 py-1 rounded mb-1">IP: 10.191.8.100/19</code>
+    <code class="block text-xs bg-[var(--code-bg)] text-[var(--code-text)] px-2 py-1 rounded mb-1">Gateway: 10.191.0.1</code>
+    <code class="block text-xs bg-[var(--code-bg)] text-[var(--code-text)] px-2 py-1 rounded mb-1">DNS: 10.192.0.198</code>
+    <code class="block text-xs bg-[var(--code-bg)] text-[var(--code-text)] px-2 py-1 rounded">DNS: 10.192.0.210</code>
+  </div>
+</aside>
+
+<!-- Mobile Menu Button -->
+<button id="menu-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-[var(--ubuntu-orange)] text-white p-3 rounded-lg shadow-lg" aria-label="Toggle navigation">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+</button>
+
+<!-- Mobile Sidebar Overlay -->
+<div id="sidebar-overlay" class="lg:hidden fixed inset-0 bg-black/50 z-40 hidden" onclick="toggleSidebar()"></div>
+
+<!-- Mobile Sidebar -->
+<aside id="mobile-sidebar" class="lg:hidden fixed left-0 top-0 h-full w-72 bg-[var(--ubuntu-light)] border-r border-gray-200 z-50 transform -translate-x-full transition-transform duration-300 overflow-y-auto p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h3 class="text-xs uppercase tracking-wider text-gray-500 pb-2 border-b-2 border-[var(--ubuntu-orange)]">Navigation</h3>
+    <button onclick="toggleSidebar()" class="text-gray-500 hover:text-gray-700" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <nav class="space-y-1">
+    {navItems.map((item) => (
+      <a href={`#${item.id}`} class="nav-link" onclick="toggleSidebar()">
+        {item.label}
+      </a>
+    ))}
+  </nav>
+</aside>
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    sidebar?.classList.toggle('-translate-x-full');
+    overlay?.classList.toggle('hidden');
+  }
+
+  document.getElementById('menu-toggle')?.addEventListener('click', toggleSidebar);
+
+  // Active section highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('nav-link-active');
+          if (link.getAttribute('data-section') === id) {
+            link.classList.add('nav-link-active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>

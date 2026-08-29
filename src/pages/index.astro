@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Workspace AI Assistant">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg></div><span>workspace ai</span></div>
+      <div class="nav-label">Workspace</div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="active" data-view="Overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Overview</span></button>
+        <button data-view="Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8 8 0 0 1-3.4-.75L4 20l1.7-3.3A7.5 7.5 0 1 1 20 11.5Z"/></svg><span>Chat</span></button>
+        <button data-view="Files"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5v-10Z"/></svg><span>Files</span></button>
+        <button data-view="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></button>
+        <button data-view="Audit log"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V5M4 19h16M8 16v-3M12 16V8M16 16v-6"/></svg><span>Audit log</span></button>
+      </nav>
+      <div class="sidebar-bottom"><div class="nav-label">Manage</div><nav class="nav"><button data-view="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="m19.4 15 .1.1a2 2 0 1 1-2.8 2.8l-.1-.1a2 2 0 0 0-3.4 1.4v.3a2 2 0 1 1-4 0v-.2A2 2 0 0 0 5.8 18l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A2 2 0 0 0 1.6 12a2 2 0 1 1 0-4h.2A2 2 0 0 0 3 4.6l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A2 2 0 0 0 9.2 0.4V.2a2 2 0 1 1 4 0v.2A2 2 0 0 0 16.6 2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A2 2 0 0 0 20.8 8h.2a2 2 0 1 1 0 4h-.2a2 2 0 0 0-1.4 3Z" transform="translate(1 1) scale(.92)"/></svg><span>Settings</span></button></nav><div class="account-card"><div class="avatar">AN</div><div><strong>Angel Navarrete</strong><span>Personal workspace</span></div></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div class="breadcrumb"><span>Workspace</span><span>/</span><b>Overview</b></div><div class="top-actions"><button class="help-btn">Help center</button><button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg></button><button class="icon-btn" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button></div></header>
+      <div class="content">
+        <p class="eyebrow">Personal workspace</p><h1>Good morning, Angel</h1><p class="subtitle">Your connected workspace is ready. What would you like to get done?</p>
+        <div class="grid">
+          <section class="card chat-card"><div class="card-head"><h2>Ask your workspace</h2><div class="status"><i></i>All systems operational</div></div><div class="chat-body">
+            <div class="message"><div class="bot-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v3M8 8h8M6 12h12M8 16h8M12 21v-3"/><rect x="4" y="6" width="16" height="13" rx="4"/></svg></div><div><div class="meta">Workspace AI · just now</div><p>Hi Angel. I can help you work across Gmail, Drive, Docs, and Sheets. I’ll always show you what I’m about to do before anything changes.</p></div></div>
+            <div class="message user-message"><p>Find the latest invoices from Adobe and summarize them.</p></div>
+            <div class="message"><div class="bot-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v3M8 8h8M6 12h12M8 16h8M12 21v-3"/><rect x="4" y="6" width="16" height="13" rx="4"/></svg></div><div><div class="meta">Workspace AI · just now</div><p>I found 3 matching emails. Here’s a summary and a proposed next step:</p></div></div>
+            <div class="action-card"><div class="action-title"><strong>Proposed action</strong><span class="approval">Needs approval</span></div><div class="action-row"><span class="gmail">●</span><span>Search Gmail for <b>Adobe invoices</b></span></div><div class="action-row"><span class="drive">●</span><span>Create summary in <b>Adobe invoices — May 2026</b></span></div><button class="approve" id="approve-btn">Approve & create summary</button></div>
+          </div><div class="composer"><div class="composer-box"><input id="prompt" placeholder="Ask anything about your workspace..." /><button class="send" id="send-btn" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 14-7-3 14-4-6-7-1Z"/><path d="m12 13 4-4"/></svg></button></div><div class="chips"><button class="chip">Summarize unread emails</button><button class="chip">Create a project tracker</button><button class="chip">Find Project Phoenix files</button></div></div></section>
+          <aside class="right-col"><section class="card integration-card"><div class="card-head"><h2>Connected accounts</h2><span class="muted">4 services</span></div><div class="integration"><div class="integration-icon gmail">M</div><div class="integration-copy"><strong>Gmail</strong><span>angel@northstar.dev</span></div><span class="connected">Connected</span></div><div class="integration"><div class="integration-icon drive">▶</div><div class="integration-copy"><strong>Google Drive</strong><span>angel@northstar.dev</span></div><span class="connected">Connected</span></div><div class="integration"><div class="integration-icon docs">▤</div><div class="integration-copy"><strong>Google Docs</strong><span>angel@northstar.dev</span></div><span class="connected">Connected</span></div><div class="integration"><div class="integration-icon sheets">▦</div><div class="integration-copy"><strong>Google Sheets</strong><span>angel@northstar.dev</span></div><span class="connected">Connected</span></div></section><section class="card activity"><div class="card-head"><h2>Recent activity</h2><span class="muted">Today</span></div><div class="activity-row"><div class="activity-dot"></div><div><strong>Drafted a reply to Sarah Chen</strong><span>Gmail · 12 minutes ago</span></div></div><div class="activity-row"><div class="activity-dot" style="background:var(--green)"></div><div><strong>Created Q2 planning doc</strong><span>Google Docs · 1 hour ago</span></div></div><div class="activity-row"><div class="activity-dot" style="background:var(--orange)"></div><div><strong>Viewed 8 unread messages</strong><span>Gmail · 2 hours ago</span></div></div><button class="view-all">View audit log →</button></section><div class="trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3 5 6v5c0 4.5 2.9 8.5 7 10 4.1-1.5 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg> Your data is isolated and encrypted</div></aside>
+        </div>
+      </div>
+    </main>
+  </div><div class="toast" id="toast" role="status"></div>
+  <script>
+    const root = document.documentElement;
+    const toast = document.getElementById('toast');
+    const showToast = (message) => { if (!toast) return; toast.textContent = message; toast.classList.add('show'); window.setTimeout(() => toast.classList.remove('show'), 2600); };
+    document.getElementById('theme-toggle')?.addEventListener('click', () => { root.classList.toggle('dark'); showToast(root.classList.contains('dark') ? 'Dark mode enabled' : 'Light mode enabled'); });
+    document.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => { document.querySelectorAll('[data-view]').forEach((item) => item.classList.remove('active')); button.classList.add('active'); showToast(`${button.getAttribute('data-view')} view selected`); }));
+    document.querySelectorAll('.chip').forEach((chip) => chip.addEventListener('click', () => { const input = document.getElementById('prompt'); if (input) { input.value = chip.textContent || ''; input.focus(); } }));
+    document.getElementById('send-btn')?.addEventListener('click', () => { const input = document.getElementById('prompt'); if (input?.value.trim()) { showToast('Message queued for the assistant'); input.value = ''; } });
+    document.getElementById('approve-btn')?.addEventListener('click', (event) => { const button = event.currentTarget; if (!(button instanceof HTMLButtonElement)) return; button.textContent = 'Summary created ✓'; button.disabled = true; showToast('Action approved — summary created'); });
+  </script>
+</BaseLayout>
