@@ -52,6 +52,24 @@ Open [http://localhost:4321](http://localhost:4321).
 | `npm run dev` | Start the local development server |
 | `npm run build` | Build the static production site |
 | `npm run preview` | Preview the production build locally |
+| `docker compose up --build` | Build and run the containerized prototype |
+| `docker compose down` | Stop the containers (data volumes remain) |
+
+## Docker Compose
+
+The included `docker-compose.yml` currently runs the working prototype with:
+
+- `workspace-ai-frontend` — Astro static build served by nginx at [http://localhost:4321](http://localhost:4321)
+- `workspace-ai-postgres` — PostgreSQL 16 with a persistent volume
+- `workspace-ai-redis` — Redis 7 with a persistent volume
+
+Start it with:
+
+```bash
+docker compose up --build
+```
+
+The database password defaults to `change-me-locally` for development only. Set `POSTGRES_PASSWORD` in an untracked `.env` file before using this beyond local development. The FastAPI backend is not included yet; it will be added when OAuth and live Google API access are implemented.
 
 ## Planned architecture
 
