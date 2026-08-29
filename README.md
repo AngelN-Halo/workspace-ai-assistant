@@ -1,43 +1,63 @@
-# Astro Starter Kit: Minimal
+# Workspace AI Assistant
 
-```sh
-npm create astro@latest -- --template minimal
+A multi-user productivity copilot for Gmail, Google Drive, Google Docs, and Google Sheets.
+
+The assistant is designed around three principles:
+
+- **Human approval first** — the assistant proposes changes before executing them.
+- **Tenant isolation** — each user’s tokens, conversations, settings, and audit history remain isolated.
+- **Auditability** — Workspace actions are recorded for review.
+
+## Current status
+
+This repository currently contains the frontend product prototype built with Astro, TypeScript, and Tailwind CSS. It demonstrates the intended workspace experience, including:
+
+- Chat-based Workspace assistant UI
+- Human approval action cards
+- Connected Google account status
+- Recent activity and audit-style history
+- Gmail, Drive, Docs, and Sheets integration surfaces
+- Responsive layouts and dark/light mode
+
+OAuth, FastAPI services, PostgreSQL persistence, Redis jobs, encryption, and live Google API calls are planned backend work and are not connected in this prototype yet.
+
+## Tech stack
+
+- Astro 5
+- TypeScript
+- React 19 support configured
+- Tailwind CSS
+- Lucide React
+- Node.js 20+
+
+## Run locally
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Open [http://localhost:4321](http://localhost:4321).
 
-## 🚀 Project Structure
+## Available commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Build the static production site |
+| `npm run preview` | Preview the production build locally |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Planned architecture
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The target deployment will use Docker Compose with four services:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `frontend` — React/TypeScript application
+- `backend` — FastAPI authentication, OAuth, agent orchestration, and Google API access
+- `postgres` — users, tokens, conversations, messages, audit logs, and automation rules
+- `redis` — session cache, background jobs, and agent memory cache
 
-Any static assets, like images, can be placed in the `public/` directory.
+The AI layer will support configurable OpenAI, Azure OpenAI, Anthropic, and local Ollama providers. Google access will use least-privilege OAuth scopes wherever possible, with refresh tokens encrypted using an application key stored separately from the database.
 
-## 🧞 Commands
+## Repository
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[github.com/AngelN-Halo/workspace-ai-assistant](https://github.com/AngelN-Halo/workspace-ai-assistant)
